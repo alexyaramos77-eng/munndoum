@@ -1,47 +1,69 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>País - MUNDOUM</title>
-<style>
-body { font-family: Arial; padding:20px; background:#f4f4f4; }
-h1 { color:#0a4; }
-</style>
+  <meta charset="UTF-8">
+  <title>País - MUNDOUM</title>
 </head>
 
 <body>
 
-<h1 id="nome">País</h1>
+<h1 id="nome"></h1>
 
-<p><strong>Informações gerais</strong></p>
-<p id="info"></p>
+<p><strong>Capital:</strong> <span id="capital"></span></p>
+<p><strong>População:</strong> <span id="populacao"></span></p>
+<p><strong>Idioma:</strong> <span id="idioma"></span></p>
+<p><strong>Moeda:</strong> <span id="moeda"></span></p>
+
+<h2>Cultura</h2>
+<p id="cultura"></p>
+
+<h2>Saúde</h2>
+<p id="saude"></p>
+
+<h2>Educação</h2>
+<p id="educacao"></p>
 
 <a href="paises.html">⬅ Voltar para países</a>
 
 <script>
+/* ========= 2ª PARTE – DADOS DOS PAÍSES ========= */
 const dados = {
   brasil: {
     nome: "🇧🇷 Brasil",
-    info: "Capital: Brasília | Idioma: Português | Moeda: Real | Saúde: SUS | Educação pública e privada"
+    capital: "Brasília",
+    populacao: "+200 milhões",
+    idioma: "Português",
+    moeda: "Real (R$)",
+    cultura: "Diversidade cultural e regional",
+    saude: "Sistema público de saúde: SUS",
+    educacao: "Educação básica obrigatória e universidades públicas"
   },
+
   argentina: {
     nome: "🇦🇷 Argentina",
-    info: "Capital: Buenos Aires | Idioma: Espanhol | Moeda: Peso argentino"
-  },
-  eua: {
-    nome: "🇺🇸 Estados Unidos",
-    info: "Capital: Washington, D.C. | Idioma: Inglês | Moeda: Dólar"
+    capital: "Buenos Aires",
+    populacao: "45 milhões",
+    idioma: "Espanhol",
+    moeda: "Peso argentino",
+    cultura: "Forte influência europeia",
+    saude: "Sistema público e privado",
+    educacao: "Educação pública gratuita"
   }
 };
 
+/* ========= 3ª PARTE – MOSTRAR NA TELA ========= */
 const url = new URLSearchParams(window.location.search);
 const pais = url.get("p");
 
 if (dados[pais]) {
   document.getElementById("nome").innerText = dados[pais].nome;
-  document.getElementById("info").innerText = dados[pais].info;
-} else {
-  document.getElementById("nome").innerText = "País não encontrado";
+  document.getElementById("capital").innerText = dados[pais].capital;
+  document.getElementById("populacao").innerText = dados[pais].populacao;
+  document.getElementById("idioma").innerText = dados[pais].idioma;
+  document.getElementById("moeda").innerText = dados[pais].moeda;
+  document.getElementById("cultura").innerText = dados[pais].cultura;
+  document.getElementById("saude").innerText = dados[pais].saude;
+  document.getElementById("educacao").innerText = dados[pais].educacao;
 }
 </script>
 
