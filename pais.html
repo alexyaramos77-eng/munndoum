@@ -3,11 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>País - MUNDOUM</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    h1 {
+      color: #0a4;
+    }
+    h2 {
+      margin-top: 20px;
+    }
+  </style>
 </head>
 
 <body>
 
-<h1 id="nome"></h1>
+<h1 id="nome">Carregando...</h1>
 
 <p><strong>Capital:</strong> <span id="capital"></span></p>
 <p><strong>População:</strong> <span id="populacao"></span></p>
@@ -26,7 +39,7 @@
 <a href="paises.html">⬅ Voltar para países</a>
 
 <script>
-/* ========= 2ª PARTE – DADOS DOS PAÍSES ========= */
+/* ===== DADOS DOS PAÍSES ===== */
 const dados = {
   brasil: {
     nome: "🇧🇷 Brasil",
@@ -38,64 +51,51 @@ const dados = {
     saude: "Sistema público de saúde: SUS",
     educacao: "Educação básica obrigatória e universidades públicas"
   },
-argentina: {
-  nome: "🇦🇷 Argentina",
-  capital: "Buenos Aires",
-  populacao: "45 milhões",
-  idioma: "Espanhol",
-  moeda: "Peso argentino",
-  cultura: "Forte influência europeia",
-  saude: "Sistema público e privado",
-  educacao: "Educação pública gratuita"
-},
+  argentina: {
+    nome: "🇦🇷 Argentina",
+    capital: "Buenos Aires",
+    populacao: "45 milhões",
+    idioma: "Espanhol",
+    moeda: "Peso argentino",
+    cultura: "Forte influência europeia",
+    saude: "Sistema público e privado",
+    educacao: "Educação pública gratuita"
+  },
+  eua: {
+    nome: "🇺🇸 Estados Unidos",
+    capital: "Washington, D.C.",
+    populacao: "331 milhões",
+    idioma: "Inglês",
+    moeda: "Dólar",
+    cultura: "Diversidade cultural e inovação",
+    saude: "Sistema público e privado",
+    educacao: "Universidades renomadas"
+  },
+  franca: {
+    nome: "🇫🇷 França",
+    capital: "Paris",
+    populacao: "67 milhões",
+    idioma: "Francês",
+    moeda: "Euro",
+    cultura: "Arte, moda e gastronomia",
+    saude: "Sistema público universal",
+    educacao: "Educação pública forte"
+  },
+  japao: {
+    nome: "🇯🇵 Japão",
+    capital: "Tóquio",
+    populacao: "125 milhões",
+    idioma: "Japonês",
+    moeda: "Iene",
+    cultura: "Tradição milenar e tecnologia",
+    saude: "Sistema universal",
+    educacao: "Educação rigorosa"
+  }
+};
 
-eua: {
-  nome: "🇺🇸 Estados Unidos",
-  capital: "Washington, D.C.",
-  populacao: "331 milhões",
-  idioma: "Inglês",
-  moeda: "Dólar",
-  cultura: "Diversidade cultural e inovação",
-  saude: "Sistema privado e público",
-  educacao: "Ensino básico e universidades renomadas"
-},
-
-franca: {
-  nome: "🇫🇷 França",
-  capital: "Paris",
-  populacao: "67 milhões",
-  idioma: "Francês",
-  moeda: "Euro",
-  cultura: "Arte, moda e gastronomia",
-  saude: "Sistema público universal",
-  educacao: "Educação pública forte"
-},
-
-japao: {
-  nome: "🇯🇵 Japão",
-  capital: "Tóquio",
-  populacao: "125 milhões",
-  idioma: "Japonês",
-  moeda: "Iene",
-  cultura: "Tradição milenar e tecnologia",
-  saude: "Sistema universal",
-  educacao: "Educação rigorosa e tecnológica"
-},
-
-portugal: {
-  nome: "🇵🇹 Portugal",
-  capital: "Lisboa",
-  populacao: "10 milhões",
-  idioma: "Português",
-  moeda: "Euro",
-  cultura: "História marítima e cultural",
-  saude: "Sistema Nacional de Saúde",
-  educacao: "Educação pública e privada"
-}
- 
-/* ========= 3ª PARTE – MOSTRAR NA TELA ========= */
-const url = new URLSearchParams(window.location.search);
-const pais = url.get("p");
+/* ===== MOSTRAR O PAÍS ===== */
+const params = new URLSearchParams(window.location.search);
+const pais = params.get("p");
 
 if (dados[pais]) {
   document.getElementById("nome").innerText = dados[pais].nome;
@@ -106,13 +106,9 @@ if (dados[pais]) {
   document.getElementById("cultura").innerText = dados[pais].cultura;
   document.getElementById("saude").innerText = dados[pais].saude;
   document.getElementById("educacao").innerText = dados[pais].educacao;
+} else {
+  document.getElementById("nome").innerText = "País não encontrado";
 }
-  <a href="pais.html?p=brasil">Brasil</a>
-<a href="pais.html?p=argentina">Argentina</a>
-<a href="pais.html?p=eua">Estados Unidos</a>
-<a href="pais.html?p=franca">França</a>
-<a href="pais.html?p=japao">Japão</a>
-<a href="pais.html?p=portugal">Portugal</a>
 </script>
 
 </body>
