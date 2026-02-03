@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>País - MUNDOUM</title>
+<style>
+body { font-family: Arial; padding:20px; background:#f4f4f4; }
+h1 { color:#0a4; }
+</style>
+</head>
+
+<body>
+
+<h1 id="nome">País</h1>
+
+<p><strong>Informações gerais</strong></p>
+<p id="info"></p>
+
+<a href="paises.html">⬅ Voltar para países</a>
+
+<script>
+const dados = {
+  brasil: {
+    nome: "🇧🇷 Brasil",
+    info: "Capital: Brasília | Idioma: Português | Moeda: Real | Saúde: SUS | Educação pública e privada"
+  },
+  argentina: {
+    nome: "🇦🇷 Argentina",
+    info: "Capital: Buenos Aires | Idioma: Espanhol | Moeda: Peso argentino"
+  },
+  eua: {
+    nome: "🇺🇸 Estados Unidos",
+    info: "Capital: Washington, D.C. | Idioma: Inglês | Moeda: Dólar"
+  }
+};
+
+const url = new URLSearchParams(window.location.search);
+const pais = url.get("p");
+
+if (dados[pais]) {
+  document.getElementById("nome").innerText = dados[pais].nome;
+  document.getElementById("info").innerText = dados[pais].info;
+} else {
+  document.getElementById("nome").innerText = "País não encontrado";
+}
+</script>
+
+</body>
+</html>
